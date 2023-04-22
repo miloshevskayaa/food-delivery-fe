@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["./app/components/*"],
+      "@core/*": ["./app/core/*"],
+      "@layouts/*": ["./app/layouts/*"],
+      "@pages/*": ["./app/pages/*"],
+      "@store/*": ["./app/store/*"],
+      "@models/*": ["./app/models/*"]
+    }
+  }
+}

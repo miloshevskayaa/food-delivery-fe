@@ -1,0 +1,142 @@
+.auth-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f6f7;
+}
+.auth-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 40px 40px;
+  background-color: white;
+  max-height: 310px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__corner-food {
+      font-weight: 700;
+      font-size: 28px;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+
+    &__delivery-app {
+      font-weight: 400;
+      font-size: 16px;
+      color: #616f80;
+    }
+  }
+
+  &__select {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 30px;
+    height: 30px;
+
+    &__login,
+    &__signup {
+      width: 130px;
+      text-align: center;
+
+      &__line {
+        display: flex;
+        justify-content: center;
+        width: 130px;
+        height: 40px;
+        border-bottom: 2px solid #fdc27a;
+      }
+    }
+  }
+}
+
+.form {
+  $ant: '.ant-form-item';
+
+  width: 38vh;
+
+  &__item {
+    font-weight: 400;
+    margin-bottom: 15px;
+
+    #{$ant}-row
+      > #{$ant}-control
+      > #{$ant}-control-input
+      > #{$ant}-control-input-content
+      > .ant-upload-wrapper > .ant-upload button {
+      background-color: transparent;
+      position: static;
+      width: 150px;
+      height: 30px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    #{$ant}-row > #{$ant}-label {
+      padding: 0;
+      height: 25px;
+
+      & > label {
+        font-size: 12px;
+        color: #616f80;
+
+        &#{$ant}-required::before {
+          content: '';
+        }
+      }
+    }
+
+    #{$ant}-row > #{$ant}-control .ant-input-affix-wrapper,
+    #{$ant}-row > #{$ant}-control .ant-input {
+      background-color: transparent;
+      color: #104e5b;
+      border-bottom: 1px solid #104e5b;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 0;
+
+      &-content {
+        background-color: aqua;
+      }
+
+      & input {
+        background-color: transparent;
+        border: 0;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.ant-row .ant-col {
+  margin: 0;
+
+  & button {
+    position: fixed;
+    bottom: 35px;
+    left: auto;
+    width: 250px;
+    height: 45px;
+    background-color: #fdc27a;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,116 @@
+.header {
+  width: 290px;
+
+  &__profile-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 30px;
+
+    &__text {
+      width: 155px;
+    }
+
+    &__avatar {
+      width: 54px;
+      height: 54px;
+    }
+  }
+
+  &__dish-setting {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    &__search {
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 40px;
+        z-index: 1;
+        border: 0;
+        background-color: transparent;
+        box-shadow: none;
+
+        & img {
+          width: 20px;
+          height: 20px;
+          filter: brightness(0) saturate(100%) invert(22%) sepia(95%)
+            saturate(469%) hue-rotate(140deg) brightness(94%) contrast(105%);
+        }
+      }
+
+      &__input {
+        position: relative;
+        width: 240px;
+        height: 40px;
+        padding: 0 20px 0 50px;
+        border: 0;
+        border-radius: 20px;
+        color: #104e5b;
+      }
+    }
+
+    &__filter {
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        border: 0;
+        background-color: #fdc27a;
+        box-shadow: none;
+
+        & img {
+          width: 20px;
+          height: 20px;
+          filter: brightness(0) saturate(100%) invert(22%) sepia(95%)
+            saturate(469%) hue-rotate(140deg) brightness(94%) contrast(105%);
+        }
+      }
+    }
+  }
+}
+
+.categories {
+  width: 290px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: left;
+  margin-top: 30px;
+  overflow: auto;
+
+  &__button {
+    width: 90px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 10px;
+    border: 0;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.01);
+    border-radius: 20px;
+    margin-right: 12px;
+
+    &.focus {
+      background-color: #fdc27a;
+    }
+
+    &.unfocus {
+      background-color: white;
+    }
+  }
+
+  &.none {
+    display: none;
+  }
+}
+.categories::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}

@@ -1,0 +1,9 @@
+.form {
+  &__forgot-password {
+    display: flex;
+    justify-content: end;
+    text-align: right;
+    font-weight: 700;
+    font-size: 13px;
+  }
+}

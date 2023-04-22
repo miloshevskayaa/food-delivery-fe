@@ -1,0 +1,164 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & button {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #fdc27a;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+  }
+
+  &__my-card {
+    margin-bottom: 25px;
+    width: 310px;
+
+    &__title {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    &__card-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+
+      &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 240px;
+        height: 145px;
+        background: #9c9c9c;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        padding: 15px 0 5px 0;
+
+        &__amazon {
+          display: flex;
+          justify-content: end;
+          width: 200px;
+          margin-bottom: 5px;
+        }
+
+        &__name {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          width: 240px;
+          height: 25px;
+          background-color: #104e5b;
+          margin-bottom: 10px;
+
+          & span {
+            color: white;
+            font-weight: 400;
+            font-size: 11px;
+            margin-left: 20px;
+          }
+        }
+
+        &__number {
+          width: 200px;
+          margin-bottom: 20px;
+
+          & span {
+            font-weight: 600;
+            font-size: 10px;
+            color: white;
+          }
+        }
+
+        &__money {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 200px;
+
+          & span {
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+          }
+
+          &__card-type {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & img {
+              width: 40px;
+              height: 25px;
+              margin-bottom: 5px;
+            }
+
+            & span {
+              font-weight: 500;
+              font-size: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__method {
+    width: 310px;
+
+    &__title {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    &__methods-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+
+      &__methods {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 240px;
+        height: 150px;
+        background: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+
+        &__credit-card,
+        &__paypal,
+        &__google-pay {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 170px;
+          font-weight: 400;
+          font-size: 12px;
+          margin: 10px 0;
+
+          & div {
+            display: flex;
+            align-items: center;
+
+            & img {
+              width: 20px;
+              height: 20px;
+              margin-right: 15px;
+            }
+          }
+
+          input[type='radio'] {
+            accent-color: #fdc27a;
+          }
+        }
+      }
+    }
+  }
+}

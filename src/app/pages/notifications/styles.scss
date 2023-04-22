@@ -1,0 +1,128 @@
+.notifications {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  &__header {
+    width: 300px;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  &__cards {
+    &__card {
+      width: 300px;
+      height: 135px;
+      background-color: white;
+      border-radius: 20px;
+      padding: 15px 0;
+
+      &__courier {
+        display: flex;
+        justify-content: space-between;
+        height: 65px;
+        padding: 0 15px;
+        border-bottom: 1px dashed #bebebe;
+        margin-bottom: 10px;
+
+        &__image-info {
+          display: flex;
+
+          &__image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-right: 15px;
+          }
+
+          &__info {
+            &__name {
+              font-weight: 700;
+              font-size: 14px;
+              margin-bottom: 3px;
+            }
+
+            &__id {
+              color: #616f80;
+              font-weight: 400;
+              font-size: 12px;
+            }
+
+            &__description {
+              font-weight: 600;
+              font-size: 11px;
+              color: #bebebe;
+            }
+          }
+        }
+
+        &__button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45px;
+          height: 45px;
+          border-radius: 15px;
+          border: 0;
+          background-color: #fdc27a;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+
+          & img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) saturate(100%) invert(22%) sepia(95%)
+              saturate(469%) hue-rotate(140deg) brightness(94%) contrast(105%);
+          }
+        }
+      }
+
+      &__delivery-info {
+        display: flex;
+        padding: 0 15px;
+
+        &__time,
+        &__address {
+          display: flex;
+          align-items: center;
+          width: 140px;
+        }
+
+        &__text {
+          display: flex;
+          flex-direction: column;
+
+          &__data-description {
+            color: #bebebe;
+            font-weight: 500;
+            font-size: 8px;
+          }
+
+          &__data {
+            font-weight: 600;
+            font-size: 9px;
+          }
+        }
+
+        &__image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border-radius: 10px;
+          background-color: #fdc27a;
+          margin-right: 5px;
+
+          & img {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
