@@ -110,7 +110,19 @@ const DishModalComponent: React.FC<any> = () => {
             type="button"
             className="modal__info__actions__add-to-cart"
             onClick={() =>
-              dispatch(setCartProducts({ ...dish, amount: countDish }))
+              dispatch(
+                setCartProducts({
+                  dishId: dish.id,
+                  image: dish.image,
+                  title: dish.title,
+                  caption: dish.caprion,
+                  price: dish.price,
+                  time: dish.deliveryTime,
+                  rating: dish.rating,
+                  description: '',
+                  amount: countDish,
+                }),
+              )
             }
           >
             ADD TO CART

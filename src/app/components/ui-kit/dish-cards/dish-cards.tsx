@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dish } from '@models/dish';
-// import { Card } from '@models/card';
 import { DishCard } from '../dish-card';
 
 import './styles.scss';
