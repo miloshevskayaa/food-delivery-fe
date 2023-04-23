@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, message } from 'antd';
 import { Loader } from '@components/ui-kit';
 import { useGetCurrentUserMutation, useLoginUserMutation } from '@store/users';
-import { setToken } from '@store/users/models/auth-slice';
+import { setToken } from '@store/users/auth-slice';
 import { useAppDispatch } from '../../core/hooks/use-app-dispatch';
 
 import './styles.scss';

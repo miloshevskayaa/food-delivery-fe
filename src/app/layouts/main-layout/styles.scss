@@ -111,10 +111,6 @@
 
   &__item {
     $ant: '.ant-menu-item';
-
-    & .ant-menu-light#{$ant}-active-selected {
-      background-color: rgb(136, 255, 127);
-    }
     &:focus {
       background-color: #fdc27a;
     }

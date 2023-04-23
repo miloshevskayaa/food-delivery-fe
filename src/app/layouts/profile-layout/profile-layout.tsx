@@ -35,13 +35,13 @@ export const ProfileLayout: FC = () => {
           />
           <div className="profile-layout__header__info__about">
             <span className="profile-layout__header__info__about__name">
-              Achmad Qomarudin
+              {user?.userName}
             </span>
             <span className="profile-layout__header__info__about__email">
-              achmadprogrammer@gmail.com
+              {user?.email}
             </span>
             <span className="profile-layout__header__info__about__id">
-              User ID : 37664872
+              User ID : {user?.userId}
             </span>
           </div>
         </div>

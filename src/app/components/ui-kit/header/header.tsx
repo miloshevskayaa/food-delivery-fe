@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Input } from 'antd';
+import { Avatar, Button } from 'antd';
 import filter from 'assets/images/navbar/filter.svg';
 import search from 'assets/images/navbar/search.svg';
 import { config } from '@core/config';
@@ -10,12 +10,22 @@ import './styles.scss';
 export const Header: React.FC<any> = ({
   text,
   categories,
-  categoryId,
-  setCategoryId,
+  selectedCategoryId,
+  setSelectedCategoryId,
+  searchDishes,
+  setSearchDishes,
 }) => {
   const [categoryOpen, setCategoryOpen] = useState(false);
 
   const user = useAppSelector(state => state.user.user);
+
+  const searchDIsh = async () => {
+    console.log(user);
+  };
+
+  function handleChange(event: any) {
+    setSearchDishes(event.target.value);
+  }
 
   return (
     <div>
@@ -29,12 +39,17 @@ export const Header: React.FC<any> = ({
         </div>
         <div className="header__dish-setting">
           <div className="header__dish-setting__search">
-            <Button className="header__dish-setting__search__button">
+            <Button
+              className="header__dish-setting__search__button"
+              onClick={() => searchDIsh()}
+            >
               <img src={search} alt="search" />
             </Button>
-            <Input
+            <input
               className="header__dish-setting__search__input"
               placeholder="Search food..."
+              onChange={handleChange}
+              value={searchDishes}
             />
           </div>
           <div className="header__dish-setting__filter">
@@ -53,10 +68,12 @@ export const Header: React.FC<any> = ({
             <div key={category.id}>
               <Button
                 className={`categories__button ${
-                  categoryId === category.id ? 'focus' : 'unfocus'
+                  selectedCategoryId === category.id ? 'focus' : 'unfocus'
                 }`}
                 onClick={() =>
-                  setCategoryId(categoryId === category.id ? '' : category.id)
+                  setSelectedCategoryId(
+                    selectedCategoryId === category.id ? '' : category.id,
+                  )
                 }
               >
                 {category.name}

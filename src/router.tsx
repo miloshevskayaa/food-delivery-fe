@@ -10,7 +10,6 @@ import { Login } from '@pages/login';
 import { Notifications } from '@pages/notifications';
 import { Payment } from '@pages/payment';
 import { Registration } from '@pages/registration';
-import { UpdateUser } from '@pages/update-user';
 import {
   AuthLayout,
   MainLayout,
@@ -50,7 +49,6 @@ export const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { index: true, element: <Login /> },
-      { path: 'update', element: <UpdateUser /> },
       { path: 'register', element: <Registration /> },
     ],
   },

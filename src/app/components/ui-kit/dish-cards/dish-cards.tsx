@@ -16,6 +16,7 @@ export const Cards: React.FC<any> = ({ dishes }) => {
               title={dish.title}
               caption={dish.caption}
               price={dish.price}
+              time={dish.deliveryTime}
             />
           </div>
         );

@@ -9,10 +9,11 @@ export const favoritesApi = createApi({
     getFavorites: builder.query({
       // добавить гварды, бек и фронт
 
-      query() {
+      query(params) {
         return {
           url: `favorites`,
           method: 'GET',
+          params,
         };
       },
       providesTags: result =>

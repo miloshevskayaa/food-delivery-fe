@@ -4,7 +4,8 @@ import { Button } from 'antd';
 import heartFull from 'assets/images/navbar/heart-full2.svg';
 import heart from 'assets/images/navbar/heart-thin.svg';
 import { config } from '@core/config';
-import { useToggleFavorites } from '@core/hooks';
+import { useAppDispatch, useToggleFavorites } from '@core/hooks';
+import { setCartProducts } from '@store/cart';
 
 import './styles.scss';
 
@@ -14,6 +15,7 @@ export const DishCard: React.FC<any> = ({
   title,
   caption,
   price,
+  time,
 }) => {
   const [toggleFavorites, favorites] = useToggleFavorites(dishId);
   const navigate = useNavigate();
@@ -21,6 +23,8 @@ export const DishCard: React.FC<any> = ({
   const modalOpen = async () => {
     navigate(`/modal/${dishId}`);
   };
+
+  const dispatch = useAppDispatch();
 
   return (
     <div className="card">
@@ -53,7 +57,25 @@ export const DishCard: React.FC<any> = ({
         <span className="card__price__usd">$</span>
         {price.toFixed(2)}
       </div>
-      <Button className="card__add-to-cart">Add to Cart</Button>
+      <Button
+        className="card__add-to-cart"
+        onClick={() =>
+          dispatch(
+            setCartProducts({
+              dishId,
+              image,
+              title,
+              caption,
+              price,
+              time,
+              description: '',
+              amount: 0,
+            }),
+          )
+        }
+      >
+        Add to Cart
+      </Button>
     </div>
   );
 };

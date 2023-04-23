@@ -8,7 +8,7 @@ import './styles.scss';
 export const AuthLayout: React.FC = () => {
   const navigate = useNavigate();
 
-  const [selectPage, setSelectPage] = useState(false);
+  const [selectPage, setSelectPage] = useState(true);
 
   return (
     <div className="auth-layout">

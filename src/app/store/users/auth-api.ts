@@ -15,6 +15,9 @@ export const authApi = createApi({
     }),
     updateUser: builder.mutation({
       query({ id, data }) {
+        console.log(id);
+        console.log(data);
+
         return {
           url: `update/${id}`,
           method: 'PATCH',
@@ -24,22 +27,14 @@ export const authApi = createApi({
     }),
     uploadImageUser: builder.mutation({
       query({ file }) {
-        console.log('file');
-        console.log(file);
-
-        // const buf = Buffer.from(file);
-
         const formData = new FormData();
 
         formData.append('image', file);
-
-        console.log(formData.get('image'));
 
         return {
           url: `update/upload`,
           method: 'POST',
           body: formData,
-          headers: { 'content-Type': 'multipart/form-data;' },
         };
       },
     }),

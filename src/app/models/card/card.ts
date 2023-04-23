@@ -5,7 +5,7 @@ export type Card = {
   caption: string;
   price: number;
   rating: number;
-  delivery_time: number;
+  deliveryTime: number;
   description: string;
   category: string;
 };

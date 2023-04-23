@@ -75,7 +75,9 @@
       > #{$ant}-control
       > #{$ant}-control-input
       > #{$ant}-control-input-content
-      > .ant-upload-wrapper > .ant-upload button {
+      > .ant-upload-wrapper
+      > .ant-upload
+      button {
       background-color: transparent;
       position: static;
       width: 150px;
@@ -108,10 +110,6 @@
       border-right: 0;
       border-radius: 0;
 
-      &-content {
-        background-color: aqua;
-      }
-
       & input {
         background-color: transparent;
         border: 0;
@@ -137,6 +135,10 @@
     border-radius: 15px;
     font-weight: 600;
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 20px;
+
+    &:focus {
+      background-color: #fdc27a;
+    }
   }
 }

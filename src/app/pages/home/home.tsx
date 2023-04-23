@@ -10,13 +10,12 @@ export const Home: React.FC = () => {
 
   const { data: categories = [] } = useGetCategoryQuery({});
 
+  const [searchDishes, setSearchDishes] = useState('');
+
   const { data: dishes = [] } = useGetDishesQuery({
     categoryId: selectedCategoryId,
+    search: searchDishes,
   });
-
-  console.log('dishes');
-
-  console.log(dishes);
 
   return (
     <div className="home">
@@ -25,6 +24,8 @@ export const Home: React.FC = () => {
         categories={categories}
         selectedCategoryId={selectedCategoryId}
         setSelectedCategoryId={setSelectedCategoryId}
+        searchDishes={searchDishes}
+        setSearchDishes={setSearchDishes}
       />
       <div>
         <Cards dishes={dishes} />

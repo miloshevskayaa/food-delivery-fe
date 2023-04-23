@@ -1,32 +1,45 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { userReducer } from './users/models/auth-slice';
+import { cartReducer, ordersApi } from './cart';
 import { categoriesApi } from './categories';
 import { dishesApi } from './dishes';
 import { favoritesApi } from './favorites';
-import { authApi } from './users';
+import { promocodesApi } from './promocodes';
+import { authApi, userReducer } from './users';
 
-const persistConfig = {
-  key: 'root',
+const persistUserConfig = {
+  key: 'user',
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
+
+const persistCartConfig = {
+  key: 'cart',
+  storage,
+};
+
+const persistedCartReducer = persistReducer(persistCartConfig, cartReducer);
 
 export const store = configureStore({
   reducer: {
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [dishesApi.reducerPath]: dishesApi.reducer,
     [favoritesApi.reducerPath]: favoritesApi.reducer,
+    [promocodesApi.reducerPath]: promocodesApi.reducer,
+    [ordersApi.reducerPath]: ordersApi.reducer,
+    cart: persistedCartReducer,
     [authApi.reducerPath]: authApi.reducer,
-    user: persistedReducer,
+    user: persistedUserReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({ serializableCheck: false }),
     categoriesApi.middleware,
     dishesApi.middleware,
     favoritesApi.middleware,
+    promocodesApi.middleware,
+    ordersApi.middleware,
     authApi.middleware,
   ],
 });
