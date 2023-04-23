@@ -1,10 +1,15 @@
 import React from 'react';
+import { message } from 'antd';
 import call from 'assets/images/navbar/call.svg';
 import map from 'assets/images/navbar/map.svg';
 import time from 'assets/images/navbar/time.svg';
 import { config } from '@core/config';
 
 export const NotificationCard: React.FC<any> = ({ order }) => {
+  const showNumber = () => {
+    message.info(order.courier.phoneNumber);
+  };
+
   return (
     <div key={order.id} className="notifications__cards__card">
       <div className="notifications__cards__card__courier">
@@ -29,6 +34,7 @@ export const NotificationCard: React.FC<any> = ({ order }) => {
         <button
           type="button"
           className="notifications__cards__card__courier__button"
+          onClick={() => showNumber()}
         >
           <img src={call} alt="" />
         </button>
