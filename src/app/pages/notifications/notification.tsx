@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { guard } from '@core/utils/HOC';
 import { useGetOrdersQuery } from '@store/cart';
 import { NotificationCard } from './components/notification-card';
 
@@ -16,7 +17,7 @@ const getOrdersWithRestTime = (orders: any[]) =>
     restTime: getRestMinutes(order.deliveryTime),
   }));
 
-export const Notifications: React.FC<any> = () => {
+const NotificationsComponent: React.FC<any> = () => {
   const { data: rawOrders = [] } = useGetOrdersQuery({});
 
   const [orders, setOrders] = useState<any[]>([]);
@@ -52,3 +53,5 @@ export const Notifications: React.FC<any> = () => {
     </div>
   );
 };
+
+export const Notifications = guard(NotificationsComponent);

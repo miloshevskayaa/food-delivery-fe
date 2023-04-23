@@ -5,6 +5,7 @@ import { Loader } from '@components/ui-kit';
 import { useGetCurrentUserMutation, useLoginUserMutation } from '@store/users';
 import { setToken } from '@store/users/auth-slice';
 import { useAppDispatch } from '../../core/hooks/use-app-dispatch';
+import { EmailModal } from './components/restore-password-email';
 
 import './styles.scss';
 
@@ -34,23 +35,35 @@ export const Login: React.FC = () => {
     useLoginUserMutation();
 
   // возращает объект юзер со всеми значениями по токену
-  const [getCurrent] = useGetCurrentUserMutation();
+  const [getCurrent, { isSuccess: isGetCurrentUserSuccess }] =
+    useGetCurrentUserMutation();
 
   const onFinish = async () => {
     if (email && password) {
       await loginUser({ email, password });
       await getCurrent({});
     } else {
-      message.info('login of password is empty');
+      message.info('login or password is empty');
     }
   };
 
   useEffect(() => {
     if (isSuccess) {
       dispatch(setToken(loggedUser.token));
-      navigate('/');
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isGetCurrentUserSuccess) {
+      navigate('/main');
+    }
+  }, [isGetCurrentUserSuccess]);
+
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+
+  const showEmailModal = () => {
+    setIsEmailModalOpen(true);
+  };
 
   return (
     <>
@@ -94,7 +107,9 @@ export const Login: React.FC = () => {
             </Form.Item>
 
             <Form.Item name="forgotPassword">
-              <span className="form__forgot-password">Forgot password?</span>
+              <span className="form__forgot-password" onClick={showEmailModal}>
+                Forgot password?
+              </span>
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
@@ -103,6 +118,11 @@ export const Login: React.FC = () => {
               </Button>
             </Form.Item>
           </Form>
+
+          <EmailModal
+            isEmailModalOpen={isEmailModalOpen}
+            setIsEmailModalOpen={setIsEmailModalOpen}
+          />
         </div>
       )}
     </>

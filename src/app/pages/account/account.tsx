@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message, Upload, UploadProps } from 'antd';
 import { useAppDispatch, useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils/HOC';
 import {
   useUpdateUserMutation,
   useUploadImageUserMutation,
@@ -11,7 +12,7 @@ import { logout, setUser } from '@store/users/auth-slice';
 
 import './styles.scss';
 
-export const Account: React.FC<any> = () => {
+const AccountComponent: React.FC<any> = () => {
   const [uploadImageUser, uploadedImageName] = useUploadImageUserMutation();
 
   const uploadImage: UploadProps['customRequest'] = async ({
@@ -58,7 +59,7 @@ export const Account: React.FC<any> = () => {
 
   const logoutUser = () => {
     dispatch(logout());
-    navigate('/auth');
+    navigate('/');
   };
 
   const [form] = Form.useForm();
@@ -166,3 +167,5 @@ export const Account: React.FC<any> = () => {
     </div>
   );
 };
+
+export const Account = guard(AccountComponent);

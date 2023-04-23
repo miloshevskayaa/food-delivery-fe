@@ -4,6 +4,7 @@ import { message } from 'antd';
 import close from 'assets/images/navbar/close.svg';
 import promocode from 'assets/images/navbar/promo_code.svg';
 import { useAppSelector } from '@core/hooks';
+import { guard } from '@core/utils/HOC';
 import { getProductsInCart } from '@store/cart';
 import { ProductInCart } from '@store/cart/models';
 import { useGetComparedPromocodeQuery } from '@store/promocodes';
@@ -12,7 +13,7 @@ import { CartCard } from './components/cart-card.tsx';
 
 import './styles.scss';
 
-export const Cart: React.FC = () => {
+const CartComponent: React.FC = () => {
   const navigate = useNavigate();
 
   const dishesInCart = useAppSelector(getProductsInCart);
@@ -64,7 +65,12 @@ export const Cart: React.FC = () => {
       </div>
       <div className="cart__cards">
         {dishesInCart.map((dish: ProductInCart) => (
-          <CartCard key={dish.dishId} dish={dish} />
+          <CartCard
+            key={dish.dishId}
+            dish={dish}
+            resultPrice={resultPrice}
+            setResultPrice={setResultPrice}
+          />
         ))}
       </div>
       <div className="cart__footer">
@@ -125,3 +131,5 @@ export const Cart: React.FC = () => {
     </div>
   );
 };
+
+export const Cart = guard(CartComponent);

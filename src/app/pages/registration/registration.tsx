@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input, Space } from 'antd';
 import { useCreateUserMutation } from '@store/users';
+import { IUser } from '@store/users/models';
 
 export const Registration: React.FC = () => {
   const [createUser] = useCreateUserMutation();
@@ -9,12 +10,10 @@ export const Registration: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const onFinish = async (fieldsValues: any) => {
-    const { confirmPassword, ...values } = fieldsValues;
+  const onFinish = async (fieldsValues: IUser) => {
+    await createUser(fieldsValues);
 
-    await createUser(values);
-
-    navigate('/auth');
+    navigate('/');
   };
 
   const onFinishFailed = (errorInfo: any) => {

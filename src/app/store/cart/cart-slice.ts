@@ -9,6 +9,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     setCartProducts: (state, action: PayloadAction<ProductInCart>) => {
+      console.log(action);
       const productInCart = state.productsInCart.find(
         item => item.dishId === action.payload.dishId,
       );

@@ -5,23 +5,25 @@ import heartFull from 'assets/images/navbar/heart-full2.svg';
 import heart from 'assets/images/navbar/heart-thin.svg';
 import { config } from '@core/config';
 import { useAppDispatch, useToggleFavorites } from '@core/hooks';
+import { Dish } from '@models/dish';
 import { setCartProducts } from '@store/cart';
 
 import './styles.scss';
 
-export const DishCard: React.FC<any> = ({
-  dishId,
+export const DishCard: React.FC<Dish> = ({
+  id,
   image,
   title,
   caption,
   price,
-  time,
+  deliveryTime,
+  rating,
 }) => {
-  const [toggleFavorites, favorites] = useToggleFavorites(dishId);
+  const [toggleFavorites, favorites] = useToggleFavorites(id);
   const navigate = useNavigate();
 
   const modalOpen = async () => {
-    navigate(`/modal/${dishId}`);
+    navigate(`/modal/${id}`);
   };
 
   const dispatch = useAppDispatch();
@@ -43,9 +45,7 @@ export const DishCard: React.FC<any> = ({
         >
           <img
             src={
-              favorites.find((item: any) => item.id === dishId)
-                ? heartFull
-                : heart
+              favorites.find((item: any) => item.id === id) ? heartFull : heart
             }
             alt="empty"
           />
@@ -62,14 +62,15 @@ export const DishCard: React.FC<any> = ({
         onClick={() =>
           dispatch(
             setCartProducts({
-              dishId,
+              dishId: id,
               image,
               title,
               caption,
               price,
-              time,
+              time: deliveryTime,
+              rating,
               description: '',
-              amount: 0,
+              amount: 1,
             }),
           )
         }

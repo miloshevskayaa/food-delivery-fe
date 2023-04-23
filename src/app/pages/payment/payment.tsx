@@ -3,10 +3,11 @@ import amazon from 'assets/images/navbar/amazon.svg';
 import google from 'assets/images/navbar/google.svg';
 import masterCard from 'assets/images/navbar/master-card.svg';
 import paypal from 'assets/images/navbar/paypal.svg';
+import { guard } from '@core/utils/HOC';
 
 import './styles.scss';
 
-export const Payment: React.FC<any> = () => {
+const PaymentComponent: React.FC<any> = () => {
   return (
     <div className="payment">
       <div className="payment__my-card">
@@ -75,3 +76,5 @@ export const Payment: React.FC<any> = () => {
     </div>
   );
 };
+
+export const Payment = guard(PaymentComponent);

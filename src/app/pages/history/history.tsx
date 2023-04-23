@@ -1,9 +1,10 @@
 import React from 'react';
+import { guard } from '@core/utils/HOC';
 import { useGetOrdersQuery } from '@store/cart';
 
 import './styles.scss';
 
-export const History: React.FC<any> = () => {
+const HistoryComponent: React.FC<any> = () => {
   const { data: orders = [] } = useGetOrdersQuery({});
 
   return (
@@ -32,3 +33,5 @@ export const History: React.FC<any> = () => {
     </div>
   );
 };
+
+export const History = guard(HistoryComponent);

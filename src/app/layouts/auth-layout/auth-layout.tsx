@@ -26,7 +26,7 @@ export const AuthLayout: React.FC = () => {
             className={`auth-header__select__login${
               selectPage ? '__line' : ''
             }`}
-            onClick={() => navigate('/auth')}
+            onClick={() => navigate('/')}
           >
             Login
           </div>
@@ -34,7 +34,7 @@ export const AuthLayout: React.FC = () => {
             className={`auth-header__select__signup${
               selectPage ? '' : '__line'
             }`}
-            onClick={() => navigate('/auth/register')}
+            onClick={() => navigate('/register')}
           >
             Signup
           </div>

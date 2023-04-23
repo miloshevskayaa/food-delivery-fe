@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { CardModal } from '@components/ui-kit';
+import { DishModal } from '@components/ui-kit';
 import { Account } from '@pages/account';
 import { Cart } from '@pages/cart';
 import { Favorites } from '@pages/favorites';
@@ -10,6 +10,7 @@ import { Login } from '@pages/login';
 import { Notifications } from '@pages/notifications';
 import { Payment } from '@pages/payment';
 import { Registration } from '@pages/registration';
+import { IUser } from '@store/users/models';
 import {
   AuthLayout,
   MainLayout,
@@ -17,35 +18,41 @@ import {
   ProfileLayout,
 } from './app/layouts';
 
+const props = {
+  redirect: '/',
+  canActivate: (user: IUser | null) => !!user,
+};
+
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: 'main',
     element: <MainLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: 'favorites', element: <Favorites /> },
-      { path: 'notifications', element: <Notifications /> },
+      { index: true, element: <Home {...props} /> },
+      { path: 'favorites', element: <Favorites {...props} /> },
+      { path: 'notifications', element: <Notifications {...props} /> },
       {
         path: 'profile',
         element: <ProfileLayout />,
         children: [
-          { index: true, element: <Payment /> },
-          { path: 'account', element: <Account /> },
-          { path: 'history', element: <History /> },
+          { index: true, element: <Payment {...props} /> },
+          { path: 'account', element: <Account {...props} /> },
+          { path: 'history', element: <History {...props} /> },
         ],
       },
     ],
   },
+
   {
     path: '/modal',
     element: <ModalLayout />,
     children: [
-      { path: 'cart', element: <Cart /> },
-      { path: ':dishId', element: <CardModal /> },
+      { path: 'cart', element: <Cart {...props} /> },
+      { path: ':dishId', element: <DishModal {...props} /> },
     ],
   },
   {
-    path: '/auth',
+    path: '/',
     element: <AuthLayout />,
     children: [
       { index: true, element: <Login /> },

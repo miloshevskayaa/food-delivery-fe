@@ -6,6 +6,7 @@ import { categoriesApi } from './categories';
 import { dishesApi } from './dishes';
 import { favoritesApi } from './favorites';
 import { promocodesApi } from './promocodes';
+import { passwordApi } from './restore-password';
 import { authApi, userReducer } from './users';
 
 const persistUserConfig = {
@@ -28,6 +29,7 @@ export const store = configureStore({
     [dishesApi.reducerPath]: dishesApi.reducer,
     [favoritesApi.reducerPath]: favoritesApi.reducer,
     [promocodesApi.reducerPath]: promocodesApi.reducer,
+    [passwordApi.reducerPath]: passwordApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
     cart: persistedCartReducer,
     [authApi.reducerPath]: authApi.reducer,
@@ -39,6 +41,7 @@ export const store = configureStore({
     dishesApi.middleware,
     favoritesApi.middleware,
     promocodesApi.middleware,
+    passwordApi.middleware,
     ordersApi.middleware,
     authApi.middleware,
   ],

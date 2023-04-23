@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Cards, Header } from '@components/ui-kit';
+import { guard } from '@core/utils/HOC';
 import { useGetCategoryQuery } from '@store/categories';
 import { useGetFavoritesQuery } from '@store/favorites';
 
-export const Favorites: React.FC = () => {
-  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+const FavoritesComponent: React.FC = () => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>('');
 
   const { data: categories = [] } = useGetCategoryQuery({});
 
-  const [searchDishes, setSearchDishes] = useState('');
+  const [searchDishes, setSearchDishes] = useState<string>('');
 
   const { data: favorites = [] } = useGetFavoritesQuery({
     categoryId: selectedCategoryId,
@@ -29,3 +30,5 @@ export const Favorites: React.FC = () => {
     </div>
   );
 };
+
+export const Favorites = guard(FavoritesComponent);

@@ -1,4 +1,4 @@
-export interface IUserRequest {
+export interface IUser {
   id: string;
   userId: number;
   userName: string;
@@ -9,6 +9,6 @@ export interface IUserRequest {
 }
 
 export interface IUserResponse {
-  user: IUserRequest | null;
+  user: IUser | null;
   token: string;
 }

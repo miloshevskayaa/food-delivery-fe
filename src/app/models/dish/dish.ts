@@ -1,11 +1,10 @@
-export type ProductInCart = {
-  dishId: string;
+export type Dish = {
+  id: string;
   title: string;
   caption: string;
   description: string;
   image: string;
-  time: number;
   rating: number;
+  deliveryTime: number;
   price: number;
-  amount: number;
 };

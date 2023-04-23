@@ -38,12 +38,12 @@ export const MainLayout: FC = () => {
         >
           <div className="icons-group">
             <Menu.Item key="home" className="icons-group__item">
-              <button type="button" onClick={() => navigate('/')}>
+              <button type="button" onClick={() => navigate('/main')}>
                 <img src={home} alt="home" />
               </button>
             </Menu.Item>
             <Menu.Item key="book" className="icons-group__item">
-              <button type="button" onClick={() => navigate('/favorites')}>
+              <button type="button" onClick={() => navigate('/main/favorites')}>
                 <img src={book} alt="book" />
               </button>
             </Menu.Item>
@@ -51,12 +51,15 @@ export const MainLayout: FC = () => {
           <span className="down-menu__navbar__halfcircle" />
           <div className="icons-group">
             <Menu.Item key="bell" className="icons-group__item">
-              <button type="button" onClick={() => navigate('/notifications')}>
+              <button
+                type="button"
+                onClick={() => navigate('/main/notifications')}
+              >
                 <img src={bell} alt="bell" />
               </button>
             </Menu.Item>
             <Menu.Item key="profile" className="icons-group__item">
-              <button type="button" onClick={() => navigate('/profile')}>
+              <button type="button" onClick={() => navigate('/main/profile')}>
                 <img src={profile} alt="profile" />
               </button>
             </Menu.Item>

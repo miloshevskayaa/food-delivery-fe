@@ -7,8 +7,6 @@ export const favoritesApi = createApi({
   tagTypes: ['Dishes'],
   endpoints: builder => ({
     getFavorites: builder.query({
-      // добавить гварды, бек и фронт
-
       query(params) {
         return {
           url: `favorites`,

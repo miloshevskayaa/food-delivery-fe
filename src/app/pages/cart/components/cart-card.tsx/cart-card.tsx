@@ -3,8 +3,22 @@ import { config } from '@core/config';
 import { useAppDispatch } from '@core/hooks';
 import { removeQuantityCartProduct, setCartProducts } from '@store/cart';
 
-export const CartCard: React.FC<any> = ({ dish }) => {
+export const CartCard: React.FC<any> = ({
+  dish,
+  resultPrice,
+  setResultPrice,
+}) => {
   const dispatch = useAppDispatch();
+
+  const removeFromCart = () => {
+    dispatch(removeQuantityCartProduct(dish));
+    setResultPrice(resultPrice - dish.price);
+  };
+
+  const addedInCart = () => {
+    dispatch(setCartProducts(dish));
+    setResultPrice(resultPrice + dish.price);
+  };
 
   return (
     <div key={dish.dishId} className="cart__cards__card">
@@ -25,14 +39,14 @@ export const CartCard: React.FC<any> = ({ dish }) => {
             <div className="cart__cards__card__info__price-actions__actions">
               <div
                 className="cart__cards__card__info__price-actions__actions__remove"
-                onClick={() => dispatch(removeQuantityCartProduct(dish))}
+                onClick={() => removeFromCart()}
               >
                 -
               </div>
               <span>{dish.amount}</span>
               <div
                 className="cart__cards__card__info__price-actions__actions__add"
-                onClick={() => dispatch(setCartProducts(dish))}
+                onClick={() => addedInCart()}
               >
                 +
               </div>

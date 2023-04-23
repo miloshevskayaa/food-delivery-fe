@@ -15,11 +15,11 @@ export const ProfileLayout: FC = () => {
 
   useEffect(() => {
     if (selectPage === 'account') {
-      navigate('/profile/account');
+      navigate('/main/profile/account');
     } else if (selectPage === 'payment') {
-      navigate('/profile');
+      navigate('/main/profile');
     } else {
-      navigate('/profile/history');
+      navigate('/main/profile/history');
     }
   }, [selectPage]);
 

@@ -43,11 +43,8 @@ export const AddressModal: React.FC<any> = ({
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Form name="basic" form={form} autoComplete="off">
-          <Form.Item
-            name="address"
-            rules={[{ required: true, message: 'Please input your address!' }]}
-          >
+        <Form form={form} autoComplete="off">
+          <Form.Item name="address">
             <Input />
           </Form.Item>
         </Form>
