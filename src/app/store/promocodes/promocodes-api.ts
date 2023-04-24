@@ -7,8 +7,6 @@ export const promocodesApi = createApi({
   endpoints: builder => ({
     getComparedPromocode: builder.query({
       query(params) {
-        console.log(params);
-
         return {
           url: 'promocode',
           method: 'GET',

@@ -28,7 +28,9 @@ export const cartSlice = createSlice({
     ) => {
       if (action.payload.amount === 1) {
         state.productsInCart.splice(
-          state.productsInCart.indexOf(action.payload) - 1,
+          state.productsInCart.findIndex(object => {
+            return object.dishId === action.payload.dishId;
+          }),
           1,
         );
       } else {

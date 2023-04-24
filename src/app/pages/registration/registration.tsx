@@ -16,10 +16,6 @@ export const Registration: React.FC = () => {
     navigate('/');
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
   return (
     <div className="registration">
       <Space direction="vertical" size={16}>
@@ -30,7 +26,6 @@ export const Registration: React.FC = () => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item

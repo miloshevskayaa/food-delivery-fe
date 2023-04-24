@@ -19,10 +19,6 @@ export const Header: React.FC<any> = ({
 
   const user = useAppSelector(state => state.user.user);
 
-  const searchDIsh = async () => {
-    console.log(user);
-  };
-
   function handleChange(event: any) {
     setSearchDishes(event.target.value);
   }
@@ -39,10 +35,7 @@ export const Header: React.FC<any> = ({
         </div>
         <div className="header__dish-setting">
           <div className="header__dish-setting__search">
-            <Button
-              className="header__dish-setting__search__button"
-              onClick={() => searchDIsh()}
-            >
+            <Button className="header__dish-setting__search__button">
               <img src={search} alt="search" />
             </Button>
             <input
