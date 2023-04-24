@@ -20,6 +20,8 @@ export const CartCard: React.FC<any> = ({
     setResultPrice(resultPrice + dish.price);
   };
 
+  // console.log(dish);
+
   return (
     <div key={dish.dishId} className="cart__cards__card">
       <img

@@ -9,17 +9,16 @@ export const cartSlice = createSlice({
   },
   reducers: {
     setCartProducts: (state, action: PayloadAction<ProductInCart>) => {
-      console.log(action);
       const productInCart = state.productsInCart.find(
         item => item.dishId === action.payload.dishId,
       );
 
       if (productInCart) {
-        productInCart.amount += 1;
+        productInCart.amount += action.payload.amount;
       } else {
         state.productsInCart.push({
           ...action.payload,
-          amount: 1,
+          amount: action.payload.amount,
         });
       }
     },

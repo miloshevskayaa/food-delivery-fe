@@ -18,6 +18,8 @@ const CartComponent: React.FC = () => {
 
   const dishesInCart = useAppSelector(getProductsInCart);
 
+  console.log(dishesInCart);
+
   const [resultPrice, setResultPrice] = useState(
     dishesInCart.reduce((acc: number, i: ProductInCart) => {
       return acc + i.price * i.amount;

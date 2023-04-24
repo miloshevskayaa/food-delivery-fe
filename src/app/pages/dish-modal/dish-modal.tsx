@@ -30,6 +30,10 @@ const DishModalComponent: React.FC<any> = () => {
 
   const [countDish, setCountDish] = useState(1);
 
+  if (countDish <= 0) {
+    setCountDish(1);
+  }
+
   return (
     <div className="modal">
       <div className="modal__image">
@@ -115,7 +119,7 @@ const DishModalComponent: React.FC<any> = () => {
                   dishId: dish.id,
                   image: dish.image,
                   title: dish.title,
-                  caption: dish.caprion,
+                  caption: dish.caption,
                   price: dish.price,
                   time: dish.deliveryTime,
                   rating: dish.rating,
