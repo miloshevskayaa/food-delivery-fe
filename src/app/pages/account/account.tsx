@@ -87,7 +87,6 @@ const AccountComponent: React.FC<any> = () => {
           name="avatar"
           label="Upload"
           valuePropName="file"
-          extra="longggg"
           className="form__item"
         >
           <Upload
@@ -132,7 +131,7 @@ const AccountComponent: React.FC<any> = () => {
           name="confirmPassword"
           rules={[
             {
-              required: !form.getFieldValue('password'),
+              required: !!form.getFieldValue('password'),
               message: 'Please repeat your password!',
             },
             ({ getFieldValue }) => ({
